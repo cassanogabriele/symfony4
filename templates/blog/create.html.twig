@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <h1>Création d'un article</h1>
+   <!-- Fonction dans laquelle on passe un formulaire -->
+
+   <!-- Début du formulaire (pas obligatoire) -->
+   {{ form_start(formArticle) }}
+
+   <!-- Afficher tout ce qu'il faut pour un champ (c'est du json qu'on écrit) -->
+   {{ form_row(formArticle.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
+   {{ form_row(formArticle.category) }}
+   {{ form_row(formArticle.content, {'attr': {'placeholder': 'Contenu de l\'article'}})}}
+   {{ form_row(formArticle.image, {'attr': {'placeholder': 'URL de l\'article'}}) }}
+
+   <button type="submit" class="btn btn-success">
+      {% if editMode %} 
+      Modifier l'article
+      {% else %}
+      Ajouter l'article
+      {% endif %}
+   </button>
+
+   <!-- Fin du formulaire (pas obligatoire) -->
+   {{ form_end(formArticle) }}
+{% endblock %}
